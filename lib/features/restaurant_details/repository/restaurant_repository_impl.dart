@@ -7,9 +7,10 @@ class RestaurantRepositoryImpl implements RestaurantRepository {
   const RestaurantRepositoryImpl();
 
   @override
-  Future<RestaurantModel> getRestaurantData() async {
+  RestaurantModel getRestaurantData() {
     return RestaurantModel(
-      name: "CEANO",
+      fname: "Lorem",
+      lname: "CEANO",
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -21,21 +22,21 @@ class RestaurantRepositoryImpl implements RestaurantRepository {
           title: "Tenderloin Steak with Grilled Vegetables",
           image: ImagesPaths.menu1,
           price: 40.95,
-          trending: true,
+          isTrending: true,
         ),
         MenuItem(
           id: "2",
           title: "25 Piece Sushi Boat with Three SIdes",
           image: ImagesPaths.menu2,
           price: 35.95,
-          trending: false,
+          isTrending: false,
         ),
         MenuItem(
           id: "3",
           title: "Shared Meal and Drinks",
           image: ImagesPaths.menu3,
           price: 49.95,
-          trending: false,
+          isTrending: false,
         ),
 
         MenuItem(
@@ -43,7 +44,7 @@ class RestaurantRepositoryImpl implements RestaurantRepository {
           title: "25 Piece Sushi Boat with Three SIdes",
           image: ImagesPaths.menu4,
           price: 15.95,
-          trending: false,
+          isTrending: false,
         ),
       ],
     );

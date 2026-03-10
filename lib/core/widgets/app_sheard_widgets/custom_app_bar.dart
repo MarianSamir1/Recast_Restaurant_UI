@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recast_restaurant_ui/core/constants/icons_paths.dart';
-import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/circle_icon.dart';
+import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/circle_blur_icon.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/image_helper.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -24,7 +24,7 @@ class CustomAppBar extends StatelessWidget {
             //==================== back Icon ====================
             GestureDetector(
               onTap: () {},
-              child: CircleIcon(iconPath: backIcon),
+              child: CircleBlurIcon(iconPath: backIcon),
             ),
             //==================== Profile icon ====================
             if (showProfileIcon)
@@ -34,8 +34,8 @@ class CustomAppBar extends StatelessWidget {
                   image: IconsPath.profile,
                   color: Colors.white,
                   imageType: ImageType.asset,
-                  width: 32.r,
-                  height: 32.r,
+                  width: 30.r,
+                  height: 30.r,
                 ),
               ),
           ],

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/image_helper.dart';
 
-class CircleIcon extends StatelessWidget {
+class CircleBlurIcon extends StatelessWidget {
   final String iconPath;
-  const CircleIcon({super.key, required this.iconPath});
+  const CircleBlurIcon({super.key, required this.iconPath});
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(50.r), // دائري
+      borderRadius: BorderRadius.circular(50.r),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Container(
@@ -25,8 +25,8 @@ class CircleIcon extends StatelessWidget {
             image: iconPath,
             imageType: ImageType.svg,
             color: Colors.white,
-            width: 13.r,
-            height: 13.r,
+            width: 12.r,
+            height: 12.r,
           ),
         ),
       ),

@@ -3,13 +3,13 @@ class MenuItem {
   final String title;
   final String image;
   final double price;
-  final bool trending;
+  final bool isTrending;
 
   const MenuItem({
     required this.id,
     required this.title,
     required this.image,
     required this.price,
-    required this.trending,
+    required this.isTrending,
   });
 }
