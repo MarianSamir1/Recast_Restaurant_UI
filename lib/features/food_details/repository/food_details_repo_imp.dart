@@ -5,18 +5,17 @@ import '../../../../core/constants/images_paths.dart';
 class FoodDetailsRepoImp implements FoodDetailsRepository {
   FoodDetailsRepoImp();
   @override
-  Future<FoodDetailsModel> getFoodDetails(String id) async {
-    await Future.delayed(const Duration(milliseconds: 400));
-
-    final Map<String, FoodDetailsModel> fakeApi = {
+  FoodDetailsModel getFoodDetails(String id) {
+    final Map<String, FoodDetailsModel> foodDetailsData = {
       "1": FoodDetailsModel(
         id: "1",
         title: "Tenderloin Steak with Grilled Vegetables & Fries",
         category: "Main Course",
         description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n"
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         image: ImagesPaths.menu1,
-        price: 45.95,
+        price: 40.95,
         preparationMinutes: 20,
         servingSize: 1,
       ),
@@ -50,11 +49,11 @@ class FoodDetailsRepoImp implements FoodDetailsRepository {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         image: ImagesPaths.menu4,
         price: 15.95,
-        preparationMinutes: 20,
+        preparationMinutes: 30,
         servingSize: 1,
       ),
     };
 
-    return fakeApi[id]!;
+    return foodDetailsData[id]!;
   }
 }

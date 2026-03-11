@@ -20,7 +20,7 @@ class MenuCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(Routes.foodDetailsScreen);
+        context.pushNamed(Routes.foodDetailsScreen, arguments: item.id);
       },
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(9.r)),

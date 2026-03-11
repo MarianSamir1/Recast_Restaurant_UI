@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:recast_restaurant_ui/core/constants/constants.dart';
 import 'package:recast_restaurant_ui/core/constants/icons_paths.dart';
 import 'package:recast_restaurant_ui/core/styles/colors.dart';
 import 'package:recast_restaurant_ui/core/styles/styles.dart';
@@ -7,36 +9,43 @@ import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/blur_circle
 import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/gradient_test.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/custom_text.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/image_helper.dart';
+import 'package:recast_restaurant_ui/features/food_details/view_model/food_details_cubit.dart';
 
 class AddToOrderBottomNavBar extends StatelessWidget {
   const AddToOrderBottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var cubit = context.read<FoodDetailsCubit>().state;
     return SafeArea(
       child: SizedBox(
         height: 45.h,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               //==================== total price + tax & service ============================
-              Column(
-                children: [
-                  GradientText(
-                    text: "45.95 JD",
-                    style: AppStyles.satoshiBold22.copyWith(fontSize: 15.sp),
-                    gradient: const LinearGradient(
-                      colors: [ColorManager.primary, ColorManager.secondary],
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    GradientText(
+                      text: "${cubit.foodDetails!.price} ${Constants.jd}",
+                      maxLines: 1,
+                      style: AppStyles.satoshiBold22.copyWith(fontSize: 15.sp),
+                      gradient: const LinearGradient(
+                        colors: [ColorManager.primary, ColorManager.secondary],
+                      ),
                     ),
-                  ),
-                  CustomText(
-                    text: "+ tax & service",
-                    textStyle: AppStyles.satoshiBold10LightGray,
-                  ),
-                ],
+                    CustomText(
+                      text: Constants.taxAndService,
+                      textStyle: AppStyles.satoshiBold10LightGray,
+                    ),
+                  ],
+                ),
               ),
+              SizedBox(width: 10.w),
               //==================== add to order button ============================
               Row(
                 children: [
@@ -67,7 +76,7 @@ class AddToOrderBottomNavBar extends StatelessWidget {
                       children: [
                         //text
                         CustomText(
-                          text: "Add to Order",
+                          text: Constants.addToOrder,
                           textStyle: AppStyles.satoshiBold10Black,
                         ),
                         SizedBox(width: 5.w),

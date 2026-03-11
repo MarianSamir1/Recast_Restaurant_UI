@@ -5,7 +5,7 @@ import 'package:recast_restaurant_ui/features/restaurant_details/view/screen/res
 
 class AppRouter {
   static Route generateRoute(RouteSettings settings) {
-    // final arguments = settings.arguments;
+    final arguments = settings.arguments;
     switch (settings.name) {
       //=========== restaurant details screen route ===========//
       case Routes.restaurantScreen:
@@ -13,9 +13,11 @@ class AppRouter {
 
       //=========== menue item details screen route ===========//
       case Routes.foodDetailsScreen:
-        return MaterialPageRoute(builder: (_) => FoodDetailsScreen());
+        return MaterialPageRoute(
+          builder: (_) => FoodDetailsScreen(foodId: arguments as String),
+        );
 
-      //=========== default route ===========//
+      //=========== default route =============================//
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
