@@ -10,4 +10,5 @@ class Constants {
   static const String jd = "JD";
   static const String jod = "JOD";
   static const String taxAndService =  "+ tax & service";
+  static const String trending =  "Trending";
 }

@@ -5,7 +5,7 @@ import 'package:recast_restaurant_ui/core/constants/constants.dart';
 import 'package:recast_restaurant_ui/core/constants/icons_paths.dart';
 import 'package:recast_restaurant_ui/core/styles/colors.dart';
 import 'package:recast_restaurant_ui/core/styles/styles.dart';
-import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/blur_circle_container.dart';
+import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/blur_circle_contanier.dart';
 import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/gradient_test.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/custom_text.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/image_helper.dart';
@@ -82,10 +82,10 @@ class AddToOrderBottomNavBar extends StatelessWidget {
                         SizedBox(width: 5.w),
                         //blus icon
                         BlurCircleContainer(
-                          padding: EdgeInsets.all(12.r),
+                          borderWidth: 1,
                           blurColor: ColorManager.black.withValues(alpha: 0.2),
                           borderColor: ColorManager.black.withValues(
-                            alpha: 0.1,
+                            alpha: 0.3,
                           ),
                           child: ImageHelper(
                             image: IconsPath.iosArrow,

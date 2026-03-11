@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recast_restaurant_ui/core/constants/icons_paths.dart';
-import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/blur_circle_container.dart';
+import 'package:recast_restaurant_ui/core/styles/colors.dart';
+import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/blur_circle_contanier.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/image_helper.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -25,7 +26,10 @@ class CustomAppBar extends StatelessWidget {
             GestureDetector(
               onTap: onbackFun,
               child: BlurCircleContainer(
-                padding: EdgeInsets.all(13.r),
+                size: 27.r,
+                borderWidth: 1,
+                blurColor: ColorManager.black.withValues(alpha: 0.4),
+                borderColor: ColorManager.black.withValues(alpha: 0.55),
                 child: ImageHelper(
                   image: IconsPath.arrow,
                   imageType: ImageType.svg,

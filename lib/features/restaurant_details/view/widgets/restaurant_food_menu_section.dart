@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:recast_restaurant_ui/core/constants/constants.dart';
 import 'package:recast_restaurant_ui/core/styles/styles.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/custom_text.dart';
-import 'package:recast_restaurant_ui/features/restaurant_details/view/widgets/menu_grid.dart';
+import 'package:recast_restaurant_ui/features/restaurant_details/view/widgets/menu_card.dart';
 import 'package:recast_restaurant_ui/features/restaurant_details/view_model/cubit.dart';
 import 'package:recast_restaurant_ui/features/restaurant_details/view_model/state.dart';
 
@@ -27,13 +28,23 @@ class RestaurantFoodMenuSection extends StatelessWidget {
               text: Constants.foodMenu,
               textStyle: AppStyles.satoshiBold11WhiteOpac80,
             ),
-            //==================== Food Menu Items ====================
+            //==================== Food Menu Grid Items ====================
             SizedBox(height: 15.h),
             BlocBuilder<RestaurantDetailsCubit, RestaurantState>(
               buildWhen: (previous, current) =>
                   previous.restaurant != current.restaurant,
-              builder: (context, state) =>
-                  MenuGrid(items: state.restaurant!.menu),
+              builder: (context, state) => MasonryGridView.count(
+                shrinkWrap: true,
+                padding: EdgeInsets.zero,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: state.restaurant!.menu.length,
+                crossAxisCount: 2,
+                mainAxisSpacing: 12,
+                crossAxisSpacing: 12,
+                itemBuilder: (_, index) {
+                  return MenuCard(item: state.restaurant!.menu[index]);
+                },
+              ),
             ),
             SizedBox(height: 20.h),
           ],

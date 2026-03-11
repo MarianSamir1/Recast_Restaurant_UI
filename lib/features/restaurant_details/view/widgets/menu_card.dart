@@ -2,14 +2,16 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:recast_restaurant_ui/core/constants/constants.dart';
 import 'package:recast_restaurant_ui/core/helper/navigation_extensions.dart';
 import 'package:recast_restaurant_ui/core/routing/routes.dart';
 import 'package:recast_restaurant_ui/core/styles/colors.dart';
 import 'package:recast_restaurant_ui/core/styles/styles.dart';
-import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/blur_circle_container.dart';
+import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/blur_circle_contanier.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/custom_text.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/image_helper.dart';
 import 'package:recast_restaurant_ui/features/restaurant_details/model/menu_item.dart';
+import 'package:recast_restaurant_ui/features/restaurant_details/view/widgets/blur_rect_container.dart';
 
 class MenuCard extends StatelessWidget {
   final MenuItem item;
@@ -28,7 +30,13 @@ class MenuCard extends StatelessWidget {
         child: Stack(
           children: [
             //==================== image =====================================
-            Positioned.fill(
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: 100.h,
+                maxHeight: 150.h,
+                maxWidth: double.infinity,
+                minWidth: double.infinity,
+              ),
               child: ImageHelper(
                 image: item.image,
                 imageType: ImageType.asset,
@@ -83,9 +91,10 @@ class MenuCard extends StatelessWidget {
                   SizedBox(width: 3.w),
                   //price
                   BlurCircleContainer(
-                    padding: EdgeInsets.all(5.r),
+                    blurColor: ColorManager.black.withValues(alpha: 0.4),
+                    borderColor: ColorManager.white.withValues(alpha: 0.3),
                     child: CustomText(
-                      text: "${item.price}\nJOD",
+                      text: "${item.price}\n${Constants.jod}",
                       textAlign: TextAlign.center,
                       textStyle: AppStyles.satoshiMedium11White.copyWith(
                         fontSize: 6.sp,
@@ -101,11 +110,11 @@ class MenuCard extends StatelessWidget {
               PositionedDirectional(
                 start: 5.w,
                 top: 5.w,
-                child: BlurCircleContainer(
-                  padding: EdgeInsets.all(5.r),
-                  isCircle: false,
+                child: BlurRectContainer(
+                  borderColor: ColorManager.white.withValues(alpha: 0.3),
+                  blurColor: ColorManager.black.withValues(alpha: 0.4),
                   child: CustomText(
-                    text: "Trending",
+                    text: Constants.trending,
                     textStyle: AppStyles.satoshiMedium11White.copyWith(
                       fontSize: 7.sp,
                     ),
