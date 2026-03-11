@@ -3,13 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recast_restaurant_ui/core/constants/icons_paths.dart';
 import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/custom_app_bar.dart';
 
-class ScreenHeader extends StatelessWidget {
+class ImageHeaderWithAppBar extends StatelessWidget {
   final String imagePath;
   final bool showProfileIcon;
-  const ScreenHeader({
+  final VoidCallback? onbackFun;
+  const ImageHeaderWithAppBar({
     super.key,
     required this.imagePath,
     required this.showProfileIcon,
+    this.onbackFun,
   });
 
   @override
@@ -18,7 +20,7 @@ class ScreenHeader extends StatelessWidget {
       children: [
         //===================== header image =====================
         Container(
-          height: 300,
+          height: 249.h,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(imagePath),
@@ -31,6 +33,7 @@ class ScreenHeader extends StatelessWidget {
         CustomAppBar(
           backIcon: IconsPath.arrow,
           showProfileIcon: showProfileIcon,
+          onbackFun: onbackFun,
         ),
         //===================== gradient ============================
         Positioned(

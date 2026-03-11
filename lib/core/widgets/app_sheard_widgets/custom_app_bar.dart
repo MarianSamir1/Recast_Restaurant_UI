@@ -6,10 +6,12 @@ import 'package:recast_restaurant_ui/core/widgets/other/image_helper.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String backIcon;
+  final VoidCallback? onbackFun;
   final bool showProfileIcon;
   const CustomAppBar({
     super.key,
     required this.backIcon,
+     this.onbackFun,
     required this.showProfileIcon,
   });
 
@@ -23,7 +25,7 @@ class CustomAppBar extends StatelessWidget {
           children: [
             //==================== back Icon ====================
             GestureDetector(
-              onTap: () {},
+              onTap: onbackFun,
               child: CircleBlurIcon(iconPath: backIcon),
             ),
             //==================== Profile icon ====================

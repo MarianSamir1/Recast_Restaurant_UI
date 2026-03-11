@@ -19,7 +19,7 @@ class CircleBlurIcon extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.black.withValues(alpha: 0.40),
-            border: Border.all(color: Colors.black, width: 1),
+            border: Border.all(color: Colors.black, width: .5),
           ),
           child: ImageHelper(
             image: iconPath,

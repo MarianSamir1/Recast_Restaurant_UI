@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:recast_restaurant_ui/core/helper/navigation_extensions.dart';
+import 'package:recast_restaurant_ui/core/routing/routes.dart';
 import 'package:recast_restaurant_ui/core/styles/colors.dart';
 import 'package:recast_restaurant_ui/core/styles/styles.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/custom_text.dart';
@@ -17,7 +19,9 @@ class MenuCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.pushNamed(Routes.menueIteamDetailsScreen);
+      },
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(9.r)),
         clipBehavior: Clip.antiAlias,
