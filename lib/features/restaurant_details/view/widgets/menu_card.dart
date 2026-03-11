@@ -6,10 +6,10 @@ import 'package:recast_restaurant_ui/core/helper/navigation_extensions.dart';
 import 'package:recast_restaurant_ui/core/routing/routes.dart';
 import 'package:recast_restaurant_ui/core/styles/colors.dart';
 import 'package:recast_restaurant_ui/core/styles/styles.dart';
+import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/blur_circle_container.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/custom_text.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/image_helper.dart';
 import 'package:recast_restaurant_ui/features/restaurant_details/model/menu_item.dart';
-import 'package:recast_restaurant_ui/features/restaurant_details/view/widgets/circle_blur_text.dart';
 
 class MenuCard extends StatelessWidget {
   final MenuItem item;
@@ -82,7 +82,17 @@ class MenuCard extends StatelessWidget {
                   ),
                   SizedBox(width: 3.w),
                   //price
-                  CircleBlurText(text: "${item.price}\nJOD"),
+                  BlurCircleContainer(
+                    padding: EdgeInsets.all(5.r),
+                    child: CustomText(
+                      text: "${item.price}\nJOD",
+                      textAlign: TextAlign.center,
+                      textStyle: AppStyles.satoshiMedium11White.copyWith(
+                        fontSize: 6.sp,
+                        height: 1.2,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -91,10 +101,15 @@ class MenuCard extends StatelessWidget {
               PositionedDirectional(
                 start: 5.w,
                 top: 5.w,
-                child: CircleBlurText(
-                  text: "Trending",
+                child: BlurCircleContainer(
+                  padding: EdgeInsets.all(5.r),
                   isCircle: false,
-                  fontSize: 7,
+                  child: CustomText(
+                    text: "Trending",
+                    textStyle: AppStyles.satoshiMedium11White.copyWith(
+                      fontSize: 7.sp,
+                    ),
+                  ),
                 ),
               ),
           ],

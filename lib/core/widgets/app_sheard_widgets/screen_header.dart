@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recast_restaurant_ui/core/constants/icons_paths.dart';
 import 'package:recast_restaurant_ui/core/widgets/app_sheard_widgets/custom_app_bar.dart';
 
 class ImageHeaderWithAppBar extends StatelessWidget {
@@ -30,11 +29,7 @@ class ImageHeaderWithAppBar extends StatelessWidget {
         ),
 
         //===================== app bar ============================
-        CustomAppBar(
-          backIcon: IconsPath.arrow,
-          showProfileIcon: showProfileIcon,
-          onbackFun: onbackFun,
-        ),
+        CustomAppBar(showProfileIcon: showProfileIcon, onbackFun: onbackFun),
         //===================== gradient ============================
         Positioned(
           bottom: 0,
