@@ -7,13 +7,13 @@ import 'package:recast_restaurant_ui/core/styles/styles.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/custom_text.dart';
 import 'package:recast_restaurant_ui/features/restaurant_details/view/widgets/menu_card.dart';
 import 'package:recast_restaurant_ui/features/restaurant_details/view_model/cubit.dart';
-import 'package:recast_restaurant_ui/features/restaurant_details/view_model/state.dart';
 
 class RestaurantFoodMenuSection extends StatelessWidget {
   const RestaurantFoodMenuSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final state = context.read<RestaurantDetailsCubit>().state;
     return SafeArea(
       top: false,
       child: Padding(
@@ -30,21 +30,17 @@ class RestaurantFoodMenuSection extends StatelessWidget {
             ),
             //==================== Food Menu Grid Items ====================
             SizedBox(height: 15.h),
-            BlocBuilder<RestaurantDetailsCubit, RestaurantState>(
-              buildWhen: (previous, current) =>
-                  previous.restaurant != current.restaurant,
-              builder: (context, state) => MasonryGridView.count(
-                shrinkWrap: true,
-                padding: EdgeInsets.zero,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: state.restaurant!.menu.length,
-                crossAxisCount: 2,
-                mainAxisSpacing: 12,
-                crossAxisSpacing: 12,
-                itemBuilder: (_, index) {
-                  return MenuCard(item: state.restaurant!.menu[index]);
-                },
-              ),
+            MasonryGridView.count(
+              shrinkWrap: true,
+              padding: EdgeInsets.zero,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: state.restaurant!.menu.length,
+              crossAxisCount: 2,
+              mainAxisSpacing: 12,
+              crossAxisSpacing: 12,
+              itemBuilder: (_, index) {
+                return MenuCard(item: state.restaurant!.menu[index]);
+              },
             ),
             SizedBox(height: 20.h),
           ],

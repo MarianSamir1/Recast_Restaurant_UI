@@ -6,13 +6,13 @@ import 'package:recast_restaurant_ui/core/styles/styles.dart';
 import 'package:recast_restaurant_ui/core/widgets/other/custom_text.dart';
 import 'package:recast_restaurant_ui/features/restaurant_details/view/widgets/atmosphere_item.dart';
 import 'package:recast_restaurant_ui/features/restaurant_details/view_model/cubit.dart';
-import 'package:recast_restaurant_ui/features/restaurant_details/view_model/state.dart';
 
 class RestaurantAtmosphereSection extends StatelessWidget {
   const RestaurantAtmosphereSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var state = context.read<RestaurantDetailsCubit>().state;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15.w),
       child: Column(
@@ -27,19 +27,15 @@ class RestaurantAtmosphereSection extends StatelessWidget {
           ),
           SizedBox(height: 15.h),
           //==================== Atmosphere Images List ====================
-          BlocBuilder<RestaurantDetailsCubit, RestaurantState>(
-            buildWhen: (previous, current) =>
-                previous.restaurant != current.restaurant,
-            builder: (context, state) => SizedBox(
-              height: 239.h,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                separatorBuilder: (context, index) => SizedBox(width: 8.w),
-                itemBuilder: (context, index) => AtmosphereItem(
-                  imagePath: state.restaurant!.atmosphereImagesList[index],
-                ),
-                itemCount: state.restaurant!.atmosphereImagesList.length,
+          SizedBox(
+            height: 239.h,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              separatorBuilder: (context, index) => SizedBox(width: 8.w),
+              itemBuilder: (context, index) => AtmosphereItem(
+                imagePath: state.restaurant!.atmosphereImagesList[index],
               ),
+              itemCount: state.restaurant!.atmosphereImagesList.length,
             ),
           ),
         ],

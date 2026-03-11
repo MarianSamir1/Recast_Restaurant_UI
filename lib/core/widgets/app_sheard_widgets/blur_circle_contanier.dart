@@ -8,21 +8,18 @@ class BlurCircleContainer extends BlurContainer {
 
   const BlurCircleContainer({
     super.key,
-    this.borderWidth = 0.5,
-    required super.child,
-    this.size = 30,
     required super.blurColor,
     required super.borderColor,
+    required super.child,
+    this.borderWidth = 0.5,
+    this.size = 30,
   });
 
   @override
   BoxDecoration buildDecoration() {
     return BoxDecoration(
       shape: BoxShape.circle,
-      border: Border.all(
-        color: borderColor,
-        width: borderWidth,
-      ),
+      border: Border.all(color: borderColor, width: borderWidth),
     );
   }
 

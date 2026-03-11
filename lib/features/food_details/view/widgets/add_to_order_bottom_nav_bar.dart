@@ -47,57 +47,62 @@ class AddToOrderBottomNavBar extends StatelessWidget {
               ),
               SizedBox(width: 10.w),
               //==================== add to order button ============================
-              Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(
-                      left: 14.w,
-                      right: 6.w,
-                      top: 5.h,
-                      bottom: 5.h,
-                    ),
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [
-                          ColorManager.primary,
-                          ColorManager.secondary,
-                          ColorManager.secondary,
+              GestureDetector(
+                onTap: () {},
+                child: Row(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(
+                        left: 14.w,
+                        right: 6.w,
+                        top: 5.h,
+                        bottom: 5.h,
+                      ),
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [
+                            ColorManager.primary,
+                            ColorManager.secondary,
+                            ColorManager.secondary,
+                          ],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                        border: Border.all(
+                          color: ColorManager.white.withValues(alpha: 0.3),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(50.r),
+                      ),
+                      child: Row(
+                        children: [
+                          //text
+                          CustomText(
+                            text: Constants.addToOrder,
+                            textStyle: AppStyles.satoshiBold10Black,
+                          ),
+                          SizedBox(width: 5.w),
+                          //blur arrow icon
+                          BlurCircleContainer(
+                            borderWidth: 1,
+                            blurColor: ColorManager.black.withValues(
+                              alpha: 0.2,
+                            ),
+                            borderColor: ColorManager.black.withValues(
+                              alpha: 0.3,
+                            ),
+                            child: ImageHelper(
+                              image: IconsPath.iosArrow,
+                              imageType: ImageType.svg,
+                              width: 11.r,
+                              height: 11.r,
+                            ),
+                          ),
                         ],
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
                       ),
-                      border: Border.all(
-                        color: ColorManager.white.withValues(alpha: 0.3),
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(50.r),
                     ),
-                    child: Row(
-                      children: [
-                        //text
-                        CustomText(
-                          text: Constants.addToOrder,
-                          textStyle: AppStyles.satoshiBold10Black,
-                        ),
-                        SizedBox(width: 5.w),
-                        //blus icon
-                        BlurCircleContainer(
-                          borderWidth: 1,
-                          blurColor: ColorManager.black.withValues(alpha: 0.2),
-                          borderColor: ColorManager.black.withValues(
-                            alpha: 0.3,
-                          ),
-                          child: ImageHelper(
-                            image: IconsPath.iosArrow,
-                            imageType: ImageType.svg,
-                            width: 11.r,
-                            height: 11.r,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
