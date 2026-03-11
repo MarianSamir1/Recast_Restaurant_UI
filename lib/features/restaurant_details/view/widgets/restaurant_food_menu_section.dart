@@ -39,7 +39,10 @@ class RestaurantFoodMenuSection extends StatelessWidget {
               mainAxisSpacing: 12,
               crossAxisSpacing: 12,
               itemBuilder: (_, index) {
-                return MenuCard(item: state.restaurant!.menu[index]);
+                return MenuCard(
+                  key: ValueKey(state.restaurant!.menu[index].id),
+                  item: state.restaurant!.menu[index],
+                );
               },
             ),
             SizedBox(height: 20.h),
