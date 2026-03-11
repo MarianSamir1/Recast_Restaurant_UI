@@ -69,13 +69,12 @@ class MenuCard extends StatelessWidget {
             ),
             //==================== text and price ============================
             PositionedDirectional(
-              bottom: 9.h,
+              bottom: 5.h,
               start: 5.w,
               end: 5.w,
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   //title
                   Expanded(
@@ -91,7 +90,7 @@ class MenuCard extends StatelessWidget {
                   SizedBox(width: 3.w),
                   //price
                   BlurCircleContainer(
-                    blurColor: ColorManager.black.withValues(alpha: 0.4),
+                    blurColor: ColorManager.black.withValues(alpha: 0.3),
                     borderColor: ColorManager.white.withValues(alpha: 0.3),
                     child: CustomText(
                       text: "${item.price}\n${Constants.jod}",
@@ -112,7 +111,7 @@ class MenuCard extends StatelessWidget {
                 top: 5.w,
                 child: BlurRectContainer(
                   borderColor: ColorManager.white.withValues(alpha: 0.3),
-                  blurColor: ColorManager.black.withValues(alpha: 0.4),
+                  blurColor: ColorManager.black.withValues(alpha: 0.3),
                   child: CustomText(
                     text: Constants.trending,
                     textStyle: AppStyles.satoshiMedium11White.copyWith(
