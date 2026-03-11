@@ -8,6 +8,8 @@ import 'package:recast_restaurant_ui/core/widgets/other/custom_text.dart';
 class InfoHeader extends StatelessWidget {
   final String title;
   final String gradientTitle;
+  final double? gradientTitleFont;
+  final Gradient? gradientTitleColors;
   final String description;
   final Color? descriptionColor;
 
@@ -17,6 +19,8 @@ class InfoHeader extends StatelessWidget {
     required this.gradientTitle,
     required this.description,
     this.descriptionColor,
+    this.gradientTitleFont,
+    this.gradientTitleColors,
   });
 
   @override
@@ -37,12 +41,17 @@ class InfoHeader extends StatelessWidget {
           ),
           GradientText(
             text: gradientTitle,
-            style: AppStyles.satoshiBold22.copyWith(height: 1.2),
-            gradient: LinearGradient(
-              colors: [ColorManager.primary, ColorManager.secondary],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
+            style: AppStyles.satoshiBold22.copyWith(
+              height: 1.2,
+              fontSize: gradientTitleFont ?? 22.sp,
             ),
+            gradient:
+                gradientTitleColors ??
+                LinearGradient(
+                  colors: [ColorManager.primary, ColorManager.secondary],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                ),
           ),
           //==================== Restaurant Description ====================
           SizedBox(height: 4.h),

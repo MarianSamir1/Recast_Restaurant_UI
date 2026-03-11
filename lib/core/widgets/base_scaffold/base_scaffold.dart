@@ -4,13 +4,13 @@ import 'package:recast_restaurant_ui/core/styles/colors.dart';
 class BaseScaffold extends StatelessWidget {
   final Widget body;
   final PreferredSizeWidget? appBar;
-  final Widget? bottomNAvigationBar;
+  final Widget? bottomNavBar;
   final Color? backGroundColor;
 
   const BaseScaffold({
     required this.body,
     this.appBar,
-    this.bottomNAvigationBar,
+    this.bottomNavBar,
     this.backGroundColor,
     super.key,
   });
@@ -21,7 +21,7 @@ class BaseScaffold extends StatelessWidget {
       backgroundColor: backGroundColor ?? ColorManager.black,
       appBar: appBar,
       body: body,
-      bottomNavigationBar: bottomNAvigationBar,
+      bottomNavigationBar: bottomNavBar,
     );
   }
 }

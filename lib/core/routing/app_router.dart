@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recast_restaurant_ui/core/routing/routes.dart';
-import 'package:recast_restaurant_ui/features/menu_item_details/view/screen/menu_item_details_screen.dart';
+import 'package:recast_restaurant_ui/features/food_details/view/screen/food_details_screen.dart';
 import 'package:recast_restaurant_ui/features/restaurant_details/view/screen/restaurant_details_screen.dart';
 
 class AppRouter {
@@ -12,8 +12,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => RestaurantDetailsScreen());
 
       //=========== menue item details screen route ===========//
-      case Routes.menueIteamDetailsScreen:
-        return MaterialPageRoute(builder: (_) => MenuItemDetailsScreen());
+      case Routes.foodDetailsScreen:
+        return MaterialPageRoute(builder: (_) => FoodDetailsScreen());
 
       //=========== default route ===========//
       default:
