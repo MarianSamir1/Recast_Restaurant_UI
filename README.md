@@ -5,14 +5,14 @@ Users can browse meals, view meal details, and add items to their order.
 
 ## 📱 Screenshots
 
-### Restaurant Screen
+### ✨ Restaurant Screen
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/dbf848b1-ccca-403a-8445-9f9de8838fd0" width="250"/>
   <img src="https://github.com/user-attachments/assets/a026eb88-0bd4-4273-8bde-8fa4a0705641" width="250"/>
 </p>
 
-### Meal Details Screen
+### ✨ Meal Details Screen
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/1569985e-1c8c-4020-96e0-f474ba7cc9f1" width="220"/>
